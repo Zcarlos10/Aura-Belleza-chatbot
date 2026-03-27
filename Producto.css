@@ -1,0 +1,221 @@
+/* === Reset === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* === General === */
+body {
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* === HEADER con imagen === */
+header {
+    background: url("imgcss/aura1.jpg") no-repeat center center;
+    background-size: cover; 
+    height: 200px;
+    position: relative;
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 0;
+}
+
+/* NAV */
+.nav-bar {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: row;  /* logo izquierda, menú derecha */
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: transparent;
+}
+
+.logo {
+    color: #d4af37;
+    font-size: 2em;
+    font-weight: bold;
+    text-align: left;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end;
+}
+.menu li a {
+    text-decoration: none;
+    color: #d4af37;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+.menu li a:hover {
+    color: #000;
+}
+
+/* === Productos === */
+.productos {
+    padding: 30px 15px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.productos h2 {
+    margin: 25px 0 15px;
+    font-size: 24px;
+    color: #222;
+    border-left: 5px solid #ff9800;
+    padding-left: 10px;
+}
+
+.grid-productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.producto {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    padding: 15px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    transition: transform 0.3s;
+}
+
+.producto:hover {
+    transform: scale(1.03);
+}
+
+.producto img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+.producto h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: #222;
+}
+
+.producto p {
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+
+/* Botón */
+.producto button {
+    background: #ff9800;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.producto button:hover {
+    background: #e68900;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    background: #222;
+    color: white;
+    padding: 20px;
+    margin-top: 40px;
+}
+footer h3 {
+    margin: 15px 0 10px;
+}
+footer a {
+    margin: 0 8px;
+    display: inline-block;
+}
+footer a img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+footer a img:hover {
+    transform: scale(1.1);
+}
+
+/* === RESPONSIVE DESIGN === */
+@media (max-width: 768px) {
+    header {
+        height: 180px;
+    }
+
+    .nav-bar {
+        flex-direction: column; /* logo arriba, menú abajo */
+        gap: 12px;
+        padding: 15px;
+    }
+
+    .logo {
+        font-size: 1.6em;
+        text-align: center;
+    }
+
+    .menu {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .productos h2 {
+        font-size: 20px;
+    }
+
+    .grid-productos {
+        grid-template-columns: 1fr 1fr; /* 2 productos por fila */
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        height: 150px;
+    }
+
+    .logo {
+        font-size: 1.4em;
+    }
+
+    .menu {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .grid-productos {
+        grid-template-columns: 1fr; /* 1 producto por fila */
+    }
+
+    .producto img {
+        height: 150px;
+    }
+
+    .producto button {
+        width: 100%;
+        font-size: 16px;
+    }
+}
